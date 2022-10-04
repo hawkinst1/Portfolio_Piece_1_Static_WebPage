@@ -211,3 +211,16 @@ reveSocialHoverChange=()=>{
 
 socialHover.onmouseover = socialHoverChange;
 footerNavBarDOM.onmouseleave = reveSocialHoverChange;
+
+// ========================================
+// Back to Top interactions
+// ========================================
+
+//get variables from body
+
+let backtoTopbtn = document.getElementById("returnToTop");
+
+scrollUp = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+backtoTopbtn.onmouseup = scrollUp;
