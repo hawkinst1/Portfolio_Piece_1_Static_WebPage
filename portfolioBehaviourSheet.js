@@ -221,6 +221,20 @@ footerNavBarDOM.onmouseleave = reveSocialHoverChange;
 let backtoTopbtn = document.getElementById("returnToTop");
 
 scrollUp = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // need to add throttling
 }
 backtoTopbtn.onmouseup = scrollUp;
+
+// ========================================
+// Line transition effect
+// ========================================
+
+// get line class
+const lineDiv = document.getElementsByClassName("lineholder")[0];
+
+lineStretcher=()=>{
+if(window.pageYOffset > 1650){
+    lineDiv.classList.add("lineholderChange");
+}
+}
+window.onscroll = lineStretcher;
