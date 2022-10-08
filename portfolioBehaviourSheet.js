@@ -9,51 +9,14 @@
 
 // Table of Content
 // =================
-// Detect browser
-// Detect mobile device
-// Page transitions
-// Smooth Scrollbar
-// Magic cursor
-// Image lazy loading
-// Header tools
-// Main menu (classic)
-// Overlay menu
-// tt-Search
-// Portfolio slider (full screen slider)
-// Portfolio carousel (full screen carousel)
-// Content carousel
-// Testimonials slider
-// Isotope
-// lightGallery (lightbox plugin)
-// Page header
-// GSAP ScrollTrigger plugin
-// Portfolio list
-// Portfolio interactive
-// Portfolio grid
-// tt-Gallery
-// tt-Accordion
-// tt-Tabs
-// Page nav
-// Sidebar
-// Sliding sidebar
-// Scrolling text
-// Scroll between anchors
-// Scroll to top
-// Defer videos (Youtube, Vimeo)
-// Forms
-// Miscellaneous 
-//
-
-// Table of Content
-// =================
 //Name Card Border animation
 //Scroll Down reminder
 //menu interaction
+//menu expand on click
 //Thumbnail interactions
-
-
-
-
+//Back to top press
+//Line transition
+//Contact hover effect
 
 
 // ========================================
@@ -148,14 +111,14 @@ scrollDown.onmouseleave = function(){
     scrollshake = setInterval( shakeScrollReminder, intervalTime);
 }
 
-function scrollReminderAction(){
+ window.onscroll =scrollReminderAction = () =>{
     if(window.pageYOffset> 400){
         scrollDown.classList.add("scrollBarGone");
     } else if (window.pageYOffset<400){
         scrollDown.classList.remove("scrollBarGone");
     }
 }
-window.onscroll= scrollReminderAction;
+
 
 scrollDown.addEventListener("click",function(){
     let scrollSpeed = 5 ;
@@ -188,6 +151,67 @@ menuNormal = () => {
 }
 navMenuContainer.onmouseover = menuHover;
 navMenuContainer.onmouseleave = menuNormal;
+
+// ========================================
+// menu expand on click effect
+// ========================================
+
+//each menu item needs to move out further than its previous
+const menuClicker = document.getElementById("menuAltText");
+const menuItems = document.getElementsByClassName("menuItemsText");
+let menuOpen = false;
+// Holders for the loop distances for each menu item.
+
+let loopCounter = 0;
+
+const distanceholder = () =>{
+    
+    switch(loopCounter){
+        case 0:
+            return 2;
+        case 1:
+            return 7.7;
+        case 2:
+            return 12;
+    }
+}
+
+const menuDistanceIterator=()=>{
+    let percentHolder = "%";
+    let stringDistanceHolder = distanceholder().toString(); // decides the distance to move based on loop number and returns a string
+    let menuItemMovementString = stringDistanceHolder+percentHolder;
+
+    return menuItemMovementString;
+}
+function menuShutter(){
+    menuOpen = false;
+    menuClicker.innerHTML ="Expand";
+    for (menuText of menuItems){
+       menuText.style.right = "0"; // reset the position to its initial css value.
+       menuText.style.opacity = "0";
+    }  
+}
+function menuOpener(){
+    menuOpen = true;
+    menuClicker.innerHTML ="Collapse";
+    for (menuText of menuItems){
+        menuText.style.right = menuDistanceIterator(); // depending on position in loop different values required
+        menuText.style.opacity = "1";
+        loopCounter++;
+    }  
+}
+// check the menu to see if it is open or closed 
+menuItemSweep=()=>{
+    loopCounter = 0;
+    if(!menuOpen){
+      menuOpener(); // menu is closed so move to open       
+   } else {
+      menuShutter(); // menu is open so move to close
+   }
+}
+// go to checker of menu status
+menuClicker.onmouseup = menuItemSweep;
+
 
 // ========================================
 // Social icon interactions
@@ -237,4 +261,21 @@ if(window.pageYOffset > 1650){
     lineDiv.classList.add("lineholderChange");
 }
 }
-window.onscroll = lineStretcher;
+ window.addEventListener("scroll",lineStretcher);
+
+ // ========================================
+// Contact hover effect
+// ========================================
+
+const contactWindow = document.getElementsByClassName("footerContact")[0];
+
+const contactWindowChange = ()=>{
+    contactWindow.classList.add("contactTransition");
+}
+const removeclass = ()=> {
+    contactWindow.classList.remove("contactTransition");
+}
+
+contactWindow.addEventListener("mouseover", contactWindowChange);
+contactWindow.addEventListener("mouseleave",removeclass); //should be able to chain together?
+
