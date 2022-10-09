@@ -454,3 +454,111 @@ footer{
 /*===========================================
 				scrollbar section
 ===========================================*/
+
+/*===========================================
+	Media for standard 1920*1080 screens
+===========================================*/
+@media only screen and (max-width: 1920px) {
+	#returnToTop:after{ /*Space out the back to top line and text*/
+		width: 20px;
+		left: 100%;
+	}
+	#logo {
+		height: 92%; /*Reduce the elongation of the image holder to keep it spherical*/
+	}
+}
+
+/*===========================================
+	Media for standard 768*1024 tablet
+===========================================*/	  
+@media only screen and (max-width: 768px){ /*Portrait mode */
+	header{
+		padding-top:0;
+		height: 98vh;
+	
+		
+		background-size: 100%;
+	
+		
+	}
+	.headerLogoNavbar{
+		padding: 0 8%;
+		border-bottom:solid 2px #93BC34;
+		z-index: 10;
+	}
+	h1{
+		font-size: 1.5rem;
+		
+	}
+	#titleSection{
+		width: 100%;
+		height: 5vh;
+		display: flex;
+		justify-content: center;
+		position: fixed;
+		background-color: rgb(18, 17, 17);
+		z-index: 9;
+	}
+	.scrollReminder,#menuAltText,#menuBars,#mainMenuText, .tlBorder, .brBorder{
+		display: none;
+	}
+	#logo{
+		height: 80%; 
+		width: 275%;
+	}
+	.menuItems, .headerLogoNavbar {
+		padding-top: 2%;
+	}
+	.menuItems{
+		margin-left: 75%;
+		margin-top: 1%;
+		float: right;
+		width:fit-content;
+		z-index: 10;
+	}
+	.menuItemsText{
+		opacity:1;
+		font-size: 0.8rem;
+		position: relative;
+		display: inline;
+		padding-bottom: 50%;
+	}
+	.lay{
+		top: 40%;
+	}
+	.thumbnails{
+		width: 250px;
+		height: 250px;
+	}
+	figcaption{
+		text-align: center;
+	}
+	.lineholder{
+		width: 90vw;
+	}
+	footer{
+		height: 375px;
+	}
+	.footerContact{
+		padding-top: 60px;
+	}
+	.footerAddOnChilds{
+		width: 15%
+	}
+	.footerAddOnChildSocial{
+		display: none;
+	}
+	.footerNav{
+		opacity: 1;
+		width:100%;
+		font-size: 0.68rem;
+		top: 10%;
+		display: inline;
+	}
+	.footerNav ul {
+		word-spacing: 100px;
+	}
+	#returnToTop:after{
+		display: none;
+	}
+}
