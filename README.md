@@ -1,2 +1,2 @@
 # Portfolio-piece
-A static webpage to be updated to contain demonstrations of various code languages learned at Codecademy
+A static webpage resulting from the Full Stack Engineer Pathway from CodeCademy, using HTML CSS and Javascript.
