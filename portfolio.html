@@ -1,117 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Thomas Hawkins - Homepage</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="portfolioProgammer.css" rel ="stylesheet"> 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<!--<script src="jquery-3.6.1.js"> </script> // JQuery library local-->
-		
-		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> CND over the web-->
-	</head>
-	<body>
-
-		<header>
-			<div class="menuItems">
-				<div class="menuItemsText">Projects</div>
-				<div class="menuItemsText">Socials</div>
-				<div class="menuItemsText">About</div>
-			</div>	
-			<section class="headerLogoNavbar">
-				<div class="LogoImageWrapper">
-					<figure id="logo">
-						<img src="images/portfolioHeadshot.jpg" alt="Thomas Hawkins logo">
-					</figure>
-				</div>
-				<nav id="headerNav">
-					<div id="mainMenuText">
-						Menu
-					</div>
-					<div id="menuAltText">
-						Expand
-					</div>
-					<span id="menuBars">						
-					</span>					
-				</nav>					
-			</section>	
-			<section class="portfolioHeaderMain">
-				<div id="titleSection"class="specialBorderForce">			
-				<div class="tlBorder topAnimate"></div>
-					<h1 id="titleCard">Thomas Hawkins</h1>
-					<div class="brBorder bottomAnimate"></div>
-				</div>
-				<div class="over lay">
-					Portfolio
-					<div class="under lay">
-					Portfolio
-					</div>
-				</div>
-			</section>
-			<section class="scrollReminder">
-				Scroll Down <span class="arrow down"></span>
-			</section>
-		</header>
-		<main>
-			<section class="thumbnailHolder">
-				<figure class="thumbnails">
-					<img src="images/csBackground.jpg" alt ="A jaunty angled screen showing c sharp">
-					<figcaption>
-						C# 
-					</figcaption>
-				</figure>
-				<figure class="thumbnails">
-					<img src="images/pythonBackground.png" alt ="a python code screenshot">
-					<figcaption>
-						Python
-					</figcaption>
-				</figure>
-				<figure class="thumbnails">
-					<img src="images/javascriptBackground.png" alt ="Two screens showing html css and javascript code">
-					<figcaption>
-						Javascript, Jquery & React
-					</figcaption>
-				</figure>
-				<figure class="thumbnails">
-					<img src="images/htmlBackground.png" alt ="webdesign coding screen">
-					<figcaption>
-						HTML5 & CSS3
-					</figcaption>
-				</figure>
-				<figure class="thumbnails">
-					<img src="images/pythonBackground.png" alt ="a python code screenshot">
-					<figcaption>
-						Java
-					</figcaption>
-				</figure>
-				<figure class="thumbnails">
-					<img src="images/phpBackground.jpg" alt ="wordpress design code">
-					<figcaption>
-						PHP
-					</figcaption>
-				</figure>
-			</secTioN>
-		</main>
-		<footer>
-			<div class="footerContact">
-				To see more
-				<p id="footerContactpara"> Contact here<p>
-			</div>
-			<div class="lineholder"></div>
-			<section class="footerAddOns">
-				<div class="footerAddOnChilds" id="returnToTop">Back to Top</div>
-				<div class="footerAddOnChilds" style="	opacity: 0.7;"><span>&copy;</span> Copyright</div>
-				<div class="footerAddOnChildSocial" id="socialTags">Socials <i class="fa fa-share-alt fa-xs" aria-hidden="true"></i></div>
-				<nav class="footerAddOnChilds footerNav" id="footerNavid">
-						<ul>
-							<a><li>Fb.</li></a>	
-							<a><li>Ig.</li></a>	
-							<a><li>Ln.</li></a>	
-							<a><li>Gh.</li></a>	
-						</ul>
-				</nav>								
-			</section>
-		</footer>
-		<script src='portfolioBehaviourSheet.js'></script> 
-	</body>
-<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link href="PortfolioStyleSheet.css" rel ="stylesheet"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title>Thomas Hawkins - Homepage</title>
+</head>
+<body>
+    <section class="Homepage__container">   
+           <header class="Homepage__container-header">
+               <div class="Homepage__container-header-navBar">
+                   <div class="Homepage__container-header-navBar_logo">
+                       <figure id="logo">
+                           <img src="images/portfolioHeadshot.jpg" alt="Thomas Hawkins logo" class="homepage__container_portfolio_img">
+                        </figure>
+                    </div>
+                    <div class="Homepage__container-header-navBar_nav-expandedItems">
+                        <div class="menuItemsText">Projects</div>
+                        <div class="menuItemsText">Socials</div>
+                        <div class="menuItemsText">About</div>
+                    </div>
+                    <nav class="Homepage__container-header-navBar_nav">                    
+                        <div class="Homepage__contiainer-header_navBar_nav-items">
+                            <div id="navBar-menu">
+                                Menu
+                            </div>
+                        </br>
+                        </br>                    
+                            <div id="navbar-expand">Expand</div>
+                        </div>
+                        <div class="Homepage__contiainer-header_navBar_nav-items_menuIcon">
+                            <span id="menuBars"></span>
+                        </div>
+                    </nav>
+                    <div class="Homepage__container-header-underline"></div>
+                </div>
+                <section class="Homepage__container-titleCard">
+                    <div class="Homepage__container-titleCard_h1">
+                            <h1>Thomas Hawkins</h1>
+                        </div>
+                        <div class="Homepage__container-titleCard_imageText">
+                            <span class="Homepage__container-titleCard_imageText_over lay">Portfolio</span>
+                            <span class="Homepage__container-titleCard_imageText_under lay">Portfolio</span>                                                        
+                        </div>
+                </section>
+                <section class="scrollReminder">
+                    Scroll Down <span class="arrow down"></span>
+                </section>
+           </header> 
+           <div class="homepage__header-mobile_menu">
+               <ul class="homepage__header-mobile_menu_list">
+                   <li>Projects</li>
+                   <li>Socials</li>
+                   <li>About</li>
+                </ul>
+            </div>
+           <main class="Homepage__container-main">   
+                <div class="Homepage_container-main_heightMaker"></div>
+                <section class="Homepage__container-main_Images">
+                    <figure class="Homepage__container-main_Images-thumbnails">
+                        <img src="images/csBackground.jpg" alt ="A jaunty angled screen showing c sharp">
+                        <figcaption>
+                            C# 
+                        </figcaption>
+                    </figure>
+                    <figure class="Homepage__container-main_Images-thumbnails">
+                        <img src="images/pythonBackground.png" alt ="a python code screenshot">
+                        <figcaption>
+                            Python
+                        </figcaption>
+                    </figure>
+                    <figure class="Homepage__container-main_Images-thumbnails">
+                        <img src="images/javascriptBackground.png" alt ="Two screens showing html css and javascript code">
+                        <figcaption>
+                            Javascript, Jquery & React
+                        </figcaption>
+                    </figure>
+                    <figure class="Homepage__container-main_Images-thumbnails">
+                        <img src="images/htmlBackground.png" alt ="webdesign coding screen">
+                        <figcaption>
+                            HTML5 & CSS3
+                        </figcaption>
+                    </figure>
+                    <figure class="Homepage__container-main_Images-thumbnails">
+                        <img src="images/pythonBackground.png" alt ="a python code screenshot">
+                        <figcaption>
+                            Java
+                        </figcaption>
+                    </figure>
+                    <figure class="Homepage__container-main_Images-thumbnails">
+                        <img src="images/phpBackground.jpg" alt ="wordpress design code">
+                        <figcaption>
+                            PHP
+                        </figcaption>
+                    </figure>
+                </secTioN>
+                <div class="Homepage_container-main_heightMaker"></div>
+           </main>
+           <footer class="Homepage__container-footer">
+                <div class="Homepage__container-footer_Contact">
+                    To see more
+                    <p id="Homepage__container-footer_Contact_p"> Contact here<p>
+                </div>
+                <div class="lineholder"></div>
+                <section class="Homepage__container-footer_Extras">
+                    <div class="Homepage__container-footer_Extras_children" id="returnToTop">Back to Top</div>
+                    <nav class="Homepage__container-footer_Extras-footerNav-mobile">
+                        <ul >
+                            <a><li>Fb.</li></a>	
+                            <a><li>Ig.</li></a>	
+                            <a><li>Ln.</li></a>	
+                            <a><li>Gh.</li></a>	
+                        </ul>
+                    </nav>								
+                    <div class="Homepage__container-footer_Extras_children" style="	opacity: 0.7;"><span>&copy;</span> Copyright</div>
+                    <div class="Homepage__container-footer_Extras_children-Social" id="socialTags">Socials <i class="fa fa-share-alt fa-xs" aria-hidden="true"></i></div>
+                    <nav class="Homepage__container-footer_Extras-footerNav" id="footerNavid">
+                            <ul>
+                                <a><li>Fb.</li></a>	
+                                <a><li>Ig.</li></a>	
+                                <a><li>Ln.</li></a>	
+                                <a><li>Gh.</li></a>	
+                            </ul>
+                    </nav>								
+                </section>
+           </footer> 
+           <script src='PortfolioActions.js'></script> 
+    </section>
+</body>
+</html>
