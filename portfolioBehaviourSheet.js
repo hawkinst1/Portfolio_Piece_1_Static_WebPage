@@ -10,6 +10,7 @@
 // Table of Content
 // =================
 //Name Card Border animation
+//Logo Glow
 //Scroll Down reminder
 //menu interaction
 //menu expand on click
@@ -19,12 +20,13 @@
 //Contact hover effect
 
 
+
 // ========================================
 // Name Card Border Animation
 // ========================================
 
 //Get variables from <body>
-const titleContainer = document.getElementById("titleSection");
+/* const titleContainer = document.getElementById("titleSection");
 const borderAnimationHover = document.getElementById("titleCard");
 
 const topBorder = titleContainer.getElementsByClassName("tlBorder")[0];
@@ -83,6 +85,31 @@ borderAnimation = () =>{
     
 }
 borderAnimationHover.onmouseover = borderAnimation;
+ */
+
+
+// ========================================
+// Logo Glow
+// ========================================
+
+const logoImage = document.getElementsByClassName("homepage__container_portfolio_img")[0];
+let isGlowing = false;
+
+const MakeLogoGlow = () => {
+    if((window.innerWidth >= 300) && (window.innerHeight <= 1200)){
+        return null;
+    }
+    if(isGlowing){        
+        logoImage.classList.remove("logo-glow-effects");
+        isGlowing = false
+    } else{    
+        logoImage.classList.add("logo-glow-effects");
+        isGlowing = true;
+    }
+}
+
+logoImage.onmouseover = MakeLogoGlow;
+logoImage.onmouseleave = MakeLogoGlow;
 
 // ========================================
 // Scroll Down Reminder Animation
@@ -119,16 +146,16 @@ scrollDown.onmouseleave = function(){
     }
 }
 
+const documentHeight = document.body.scrollHeight;
 
-scrollDown.addEventListener("click",function(){
-    let scrollSpeed = 5 ;
-    var i = 10;
-    var int = setInterval(function() {
-    window.scrollTo(0, i);
-    i += 10;
-    if (i >= 1150) clearInterval(int);
-  }, scrollSpeed);
-})
+
+scrollDown.onmouseup = () => {
+    window.scrollTo({ 
+        top: documentHeight,
+        behavior:"smooth"
+    })
+}
+
 
 // ========================================
 // Menu interactions
@@ -136,18 +163,18 @@ scrollDown.addEventListener("click",function(){
 
 //set menu var from body
 
-let navMenuContainer = document.getElementById("headerNav");
-let menuNav = document.getElementById("mainMenuText");
-let altMenuNav = document.getElementById("menuAltText");
+let navMenuContainer = document.getElementsByClassName("Homepage__container-header-navBar_nav")[0];
+let menuNav = document.getElementById("navBar-menu");
+let altMenuNav = document.getElementById("navbar-expand");
 
 
 menuHover = () => {
-    altMenuNav.classList.add("menuAltTextHover");
-    menuNav.classList.add("menuHover")
+    menuNav.classList.add("Homepage__container-header-navBar_navHover");
+    altMenuNav.classList.add("Homepage__container-header-navBar_navHoverExpand")
 }
 menuNormal = () => {
-    altMenuNav.classList.remove("menuAltTextHover");
-    menuNav.classList.remove("menuHover")
+    menuNav.classList.remove("Homepage__container-header-navBar_navHover");
+    altMenuNav.classList.remove("Homepage__container-header-navBar_navHoverExpand")
 }
 navMenuContainer.onmouseover = menuHover;
 navMenuContainer.onmouseleave = menuNormal;
@@ -157,22 +184,30 @@ navMenuContainer.onmouseleave = menuNormal;
 // ========================================
 
 //each menu item needs to move out further than its previous
-const menuClicker = document.getElementById("menuAltText");
+const menuClicker = document.getElementById("navbar-expand");
 const menuItems = document.getElementsByClassName("menuItemsText");
+const sizeOfScreen = window.innerWidth;
 let menuOpen = false;
 // Holders for the loop distances for each menu item.
 
 let loopCounter = 0;
-
 const distanceholder = () =>{
-    
+  
     switch(loopCounter){
         case 0:
-            return 2;
+            return distanceCalculator(sizeOfScreen);
         case 1:
-            return 7.7;
+            return distanceCalculator(sizeOfScreen) +35;
         case 2:
-            return 12;
+            return distanceCalculator(sizeOfScreen) + 70;
+    }
+}
+
+const distanceCalculator = (windowSize) =>{
+    if(windowSize >= 1600 && windowSize < 1900){
+        return 180
+    } else if (windowSize > 2000){
+        return 300
     }
 }
 
@@ -186,27 +221,30 @@ const menuDistanceIterator=()=>{
 function menuShutter(){
     menuOpen = false;
     menuClicker.innerHTML ="Expand";
-    for (menuText of menuItems){
-       menuText.style.right = "0"; // reset the position to its initial css value.
-       menuText.style.opacity = "0";
-    }  
+
+        for (menuText of menuItems){
+            menuText.style.removeProperty("left"); // reset the position to its initial css value.
+            menuText.style.opacity = "0";       
+        }  
 }
 function menuOpener(){
     menuOpen = true;
     menuClicker.innerHTML ="Collapse";
-    for (menuText of menuItems){
-        menuText.style.right = menuDistanceIterator(); // depending on position in loop different values required
-        menuText.style.opacity = "1";
-        loopCounter++;
-    }  
+  
+        for (menuText of menuItems){       
+            menuText.style.left = menuDistanceIterator(); // depending on position in loop different values required
+            menuText.style.opacity = "1";       
+            loopCounter++;
+        }  
+    
 }
 // check the menu to see if it is open or closed 
 menuItemSweep=()=>{
     loopCounter = 0;
-    if(!menuOpen){
-      menuOpener(); // menu is closed so move to open       
-   } else {
-      menuShutter(); // menu is open so move to close
+    if(!menuOpen){    
+        menuOpener(); // menu is closed so move to open       
+    } else {      
+        menuShutter(); // menu is open so move to close
    }
 }
 // go to checker of menu status
@@ -222,15 +260,14 @@ menuClicker.onmouseup = menuItemSweep;
 let socialHover = document.getElementById("socialTags");
 let footerNavBarDOM = document.getElementById("footerNavid");
 
-
 socialHoverChange = () =>{
-    socialHover.classList.add("socialChanges");
-    footerNavBarDOM.classList.add("socialSymbolChanges");
+    socialHover.classList.add("footer__socialMedia_change");
+    footerNavBarDOM.classList.add("footer__socialMedia_change-icons");
     
 }
 reveSocialHoverChange=()=>{
-    socialHover.classList.remove("socialChanges");
-    footerNavBarDOM.classList.remove("socialSymbolChanges");
+    socialHover.classList.remove("footer__socialMedia_change");
+    footerNavBarDOM.classList.remove("footer__socialMedia_change-icons");
 }
 
 socialHover.onmouseover = socialHoverChange;
@@ -262,20 +299,31 @@ if(window.pageYOffset > 1650){
 }
 }
  window.addEventListener("scroll",lineStretcher);
-
- // ========================================
+ 
+// ========================================
 // Contact hover effect
 // ========================================
 
-const contactWindow = document.getElementsByClassName("footerContact")[0];
+const contactWindow = document.getElementsByClassName("Homepage__container-footer_Contact")[0];
 
 const contactWindowChange = ()=>{
-    contactWindow.classList.add("contactTransition");
+   
+   if((window.innerWidth >= 300) && (window.innerHeight <= 1200)){ 
+       return null;
+    }
+    contactWindow.classList.add("Homepage__container-footer_Contact-hover");
+    
 }
 const removeclass = ()=> {
-    contactWindow.classList.remove("contactTransition");
+ 
+    if((window.innerWidth >= 300) && (window.innerHeight <= 1200)){
+       //window is bigger than 300 and smaller than 1200
+       return null;        
+    }
+    contactWindow.classList.remove("Homepage__container-footer_Contact-hover");
 }
 
-contactWindow.addEventListener("mouseover", contactWindowChange);
-contactWindow.addEventListener("mouseleave",removeclass); //should be able to chain together?
+    contactWindow.addEventListener("mouseover", contactWindowChange);
+    contactWindow.addEventListener("mouseleave",removeclass); 
+
 
